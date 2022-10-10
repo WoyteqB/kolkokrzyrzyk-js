@@ -1,47 +1,72 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gra w kółko krzyżyk</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <h1>Kółko x Krzyżyk</h1>
+      <div class="wrap">
+        <h1>Kółko<span>vs</span>Krzyżyk</h1>
+
+        <!-- <div class="buttton-wrap poziom">
+          <p>Pozom trudnosci</p>
+          <button>Łatwy</button>
+          <button class="disable">Trudny</button>
+        </div>
+        <div class="buttton-wrap play">
+          <button>Graj</button>
+        </div> -->
+      </div>
     </header>
     <main>
+      <div class="wrap">
         <div class="plansza">
-            <div class="pole wiersz1 kolumna1">
-                <button class="1"></button>
-            </div>
-            <div class="pole wiersz1 kolumna2">
-                <button class="2"></button>
-            </div>
-            <div class="pole wiersz1 kolumna3">
-                <button class="3"></button>
-            </div>
-            <div class="pole wiersz2 kolumna1">
-                <button class="4"></button>
-            </div>
-            <div class="pole wiersz2 kolumna2">
-                <button class="5"></button>
-            </div>
-            <div class="pole wiersz2 kolumna3">
-                <button class="6"></button>
-            </div>
-            <div class="pole wiersz3 kolumna1">
-                <button class="7"></button>
-            </div>
-            <div class="pole wiersz3 kolumna2">
-                <button class="8"></button>
-            </div>
-            <div class="pole wiersz3 kolumna3">
-                <button class="9"></button>
-            </div>
+          <div class="pole wiersz1 kolumna1">
+            <button class="0"></button>
+          </div>
+          <div class="pole wiersz1 kolumna2">
+            <button class="1"></button>
+          </div>
+          <div class="pole wiersz1 kolumna3">
+            <button class="2"></button>
+          </div>
+          <div class="pole wiersz2 kolumna1">
+            <button class="3"></button>
+          </div>
+          <div class="pole wiersz2 kolumna2">
+            <button class="4"></button>
+          </div>
+          <div class="pole wiersz2 kolumna3">
+            <button class="5"></button>
+          </div>
+          <div class="pole wiersz3 kolumna1">
+            <button class="6"></button>
+          </div>
+          <div class="pole wiersz3 kolumna2">
+            <button class="7"></button>
+          </div>
+          <div class="pole wiersz3 kolumna3">
+            <button class="8"></button>
+          </div>
         </div>
+        <div class="wynik">
+          <div class="gracz">Gracz: <span>0</span></div>
+          <div class="remis">Remis: <span>0</span></div>
+          <div class="komputer">Komputer: <span>0</span></div>
+        </div>
+      </div>
     </main>
+    <div class="modal-container hidden">
+      <div class="modal game-end">
+        <h3>Wygrałeś</h3>
+        <button class="again">Graj dalej</button>
+        <button class="end">Koniec</button>
+      </div>
+    </div>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

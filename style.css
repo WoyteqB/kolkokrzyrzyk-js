@@ -11,7 +11,47 @@ body{
 header, main{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
+.wrap{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+header h1{
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+header h1 span{
+    font-weight: 100;
+    font-size: 30px;
+    color: orange;
+}
+header .poziom{
+    background-color: #eee;
+    padding: 20px;
+}
+header .poziom button,
+header .play button{
+    padding: 10px 20px;
+    border: none;
+    background-color: orange;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+header .poziom button.disable{
+    background-color: #999;
+}
+
 .plansza{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -38,4 +78,69 @@ header, main{
 .plansza .pole.wiersz1,
 .plansza .pole.wiersz2{
     border-bottom: 4px solid #ccc;
+}
+
+
+/* Wynik */
+.wynik{
+    background-color: #eee;
+    padding: 20px 30px;
+    max-width: 300px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 300;
+}
+.wynik span{
+    font-weight: 500;
+}
+
+
+/* Modal */
+
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-container.hidden{
+    display: none;
+}
+.modal-container .modal{
+    padding: 20px 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    min-width: 200px;
+    text-align: center;
+}
+.modal-container .modal h3{
+    font-size: 40px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+.modal-container .modal button{
+    padding: 10px 20px;
+    border: 1px solid darkorange;
+    background-color: orange;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 10px;
+    cursor: pointer;
+}
+.modal-container .modal button:hover{
+    background-color: lightsalmon;
 }
