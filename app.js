@@ -1,17 +1,25 @@
+//const p = document.querySelector(".plansza");
+//p.addEventListener("click", e => {console.log(e.target)})
 
+const przyciski = document.querySelectorAll(".plansza .pole button");
+przyciski.forEach( (przycisk, index) => {
+    przycisk.addEventListener("click", e => postawKrzyzyk(e, przycisk, index));
+} );
 
 let plansza = ["X","","","O","","","","",""]
 
 let wygrana = false;
-
+let koniecGry = false;
 
 let postawKrzyzyk = (e, button, index)=>{
-    console.log(index);
-    plansza[index]="X";
-    sprawdzWygrana();
-    postawKolko();
-    rysujPlansze();
-    console.log(e.target);
+    console.log("Klasa "+button.className);
+    if(e.target.innerText === ""){
+        plansza[index]="X";
+        sprawdzWygrana();
+        postawKolko();
+        rysujPlansze();
+        console.log(e.target);
+    }
 };
 
 let postawKolko = () => {
@@ -41,43 +49,10 @@ let postawKolko = () => {
 }
 
 let rysujPlansze = () => {
-    console.log("Rysuj plansze");
-    let text = `<div class="pole wiersz1 kolumna1">
-                    <button class="1"></button>
-                </div>
-                <div class="pole wiersz1 kolumna2">
-                    <button class="2"></button>
-                </div>
-                <div class="pole wiersz1 kolumna3">
-                    <button class="3"></button>
-                </div>
-                <div class="pole wiersz2 kolumna1">
-                    <button class="4"></button>
-                </div>
-                <div class="pole wiersz2 kolumna2">
-                    <button class="5"></button>
-                </div>
-                <div class="pole wiersz2 kolumna3">
-                    <button class="6"></button>
-                </div>
-                <div class="pole wiersz3 kolumna1">
-                    <button class="7"></button>
-                </div>
-                <div class="pole wiersz3 kolumna2">
-                    <button class="8"></button>
-                </div>
-                <div class="pole wiersz3 kolumna3">
-                    <button class="9"></button>
-                </div>`;
-
-    document.querySelector(".plansza").innerHTML = text;
-    const przyciski = document.querySelectorAll(".plansza .pole button");
     przyciski.forEach( (przycisk, index) => {
         przycisk.innerHTML = plansza[index];
-        //console.log(plansza[index]);
-        if(plansza[index] === ""){
-            przycisk.addEventListener("click", e => postawKrzyzyk(e, przycisk, index));
-        }else{
+        if(plansza[index] !== ""){
+            przycisk.removeEventListener("click", e => postawKrzyzyk(e, przycisk, index));
             przycisk.classList.add("used")
         }
     } )
