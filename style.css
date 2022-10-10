@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body{
+    font-family: 'Roboto', sans-serif;
+}
+header, main{
+    display: flex;
+    justify-content: center;
+}
+.plansza{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.plansza .pole button{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    display: block;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 60px;
+    line-height: 80px;
+    padding: 10px;
+}
+.plansza .pole button.used{
+    cursor:auto;
+}
+.plansza .pole.kolumna1,
+.plansza .pole.kolumna2{
+    border-right: 4px solid #ccc;
+}
+.plansza .pole.wiersz1,
+.plansza .pole.wiersz2{
+    border-bottom: 4px solid #ccc;
+}
