@@ -34,10 +34,17 @@ let postawKrzyzyk = (e, button, index)=>{
 
 let postawKolko = () => {
     console.log("Czy są dwa X w lini: "+sprawdzCzySaDwaZnakiWLini())
-    console.log(sprawdzCzySaDwaZnakiWLini() != undefined);
-    if(sprawdzCzySaDwaZnakiWLini() != undefined && poziom === 2){
+    console.log(sprawdzCzySaDwaZnakiWLini("X") != undefined);
+    let dwaXwWierszu = sprawdzCzySaDwaZnakiWLini("X");
+    let dwaOwWierszu = sprawdzCzySaDwaZnakiWLini("O");
+    if(dwaOwWierszu != undefined && poziom === 3 ){
         //console.log("Do zablokowania pole " + sprawdzCzySaDwaZnakiWLini());
-        plansza[sprawdzCzySaDwaZnakiWLini()]="O";
+        plansza[dwaOwWierszu]="O";
+        //console.log("wstaw  O w miejsce: "+plansza[sprawdzCzySaDwaZnakiWLini()]);
+        //console.log(plansza);
+    }else if(dwaXwWierszu != undefined && poziom !== 1 ){
+        //console.log("Do zablokowania pole " + sprawdzCzySaDwaZnakiWLini());
+        plansza[dwaXwWierszu]="O";
         //console.log("wstaw  O w miejsce: "+plansza[sprawdzCzySaDwaZnakiWLini()]);
         //console.log(plansza);
     }else{
@@ -67,29 +74,30 @@ let postawKolko = () => {
     //console.log(plansza)
 }
 
-let sprawdzCzySaDwaZnakiWLini = () =>{
-    
-    if((plansza[0] + plansza[4] + plansza[8]) === "XX"){
+let sprawdzCzySaDwaZnakiWLini = (item) =>{
+    let test = "XX";
+    item === "X"? test="XX":test="OO";
+    if((plansza[0] + plansza[4] + plansza[8]) === test){
         console.log("Dwa x w lini do zablokowania. skos 1: "+plansza[0] +",2: "+ plansza[4] +",3: "+ plansza[8] );
         //console.log(zrocPustePolePlanszy(0,4,8));
         if(zrocPustePolePlanszy(0,4,8) != undefined){
             return zrocPustePolePlanszy(0,4,8);
         }
-    }else if((plansza[2] + plansza[4] + plansza[6]) === "XX"){
+    }else if((plansza[2] + plansza[4] + plansza[6]) === test){
         //console.log("Dwa x w lini do zablokowania. / " );
         if(zrocPustePolePlanszy(2,4,6) != undefined){
             return zrocPustePolePlanszy(2,4,6);
         }
     }else{
         for(let i = 0; i < 3; i++){
-            if((plansza[(i*3)] + plansza[(i*3)+1] + plansza[(i*3)+2]) === "XX"){
+            if((plansza[(i*3)] + plansza[(i*3)+1] + plansza[(i*3)+2]) === test){
                 //console.log("Dwa x w lini do zablokowania. Wiersz "+i );
                 if(zrocPustePolePlanszy((i*3),(i*3)+1,(i*3)+2) != undefined){
                     return zrocPustePolePlanszy((i*3),(i*3)+1,(i*3)+2);
                     break;
                 }
             }
-            if((plansza[i] + plansza[i+3] + plansza[i+6]) === "XX"){
+            if((plansza[i] + plansza[i+3] + plansza[i+6]) === test){
                 //console.log("Dwa x w lini do zablokowania. Kolumna: "+i )
                 if(zrocPustePolePlanszy(i,i+3,i+6) != undefined){
                     return zrocPustePolePlanszy(i,i+3,i+6);
@@ -216,8 +224,10 @@ poziomTrudnosci.forEach(przycisk => przycisk.addEventListener("click", (event)=>
     przycisk.classList.remove("disable");
     if(przycisk.textContent === "Łatwy"){
         poziom = 1;
-    }else if(przycisk.textContent === "Trudny"){
+    }else if(przycisk.textContent === "Średni"){
         poziom = 2;
+    }else if(przycisk.textContent === "Trudny"){
+        poziom = 3;
     }
     
 }));
